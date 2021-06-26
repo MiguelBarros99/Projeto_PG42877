@@ -85,96 +85,96 @@ X_train, X_test, y_train, y_test = train_test_split(fps_x, fps_y, test_size=0.25
 
 ###### Simple Cross Validation ######
 
-# print('RFCV5')
-# RFCVcc=shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='rfcv5Redud', columns_names=colnames)
-# scoreRFCVcc = RFCVcc.cross_val_score_model(model_name='rf',model=None,score=make_scorer(matthews_corrcoef),cv=None,random_state=1,n_jobs=5)
-# print(scoreRFCVcc)
-#
-# print('RFCV10')
-# RFCVdez=shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='rfcv10Redud', columns_names=colnames)
-# scoreRFCVdez = RFCVdez.cross_val_score_model(model_name='rf',model=None,score=make_scorer(matthews_corrcoef),cv=10,random_state=1,n_jobs=5)
-# print(scoreRFCVdez)
+print('RFCV5')
+RFCVcc=shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='rfcv5Redud', columns_names=colnames)
+scoreRFCVcc = RFCVcc.cross_val_score_model(model_name='rf',model=None,score=make_scorer(matthews_corrcoef),cv=None,random_state=1,n_jobs=5)
+print(scoreRFCVcc)
 
-# print('ONEvsALL')
-# clf = OneVsRestClassifier(SVC(C= 32.0, kernel= 'rbf'), n_jobs=5).fit(X_train, y_train)
-# score = clf.score(X_test, y_test)
-# print(score)
-#
-# print('SVMCV10')
-# SVMCVdez = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='svm10Redud', columns_names=colnames)
-# scoreSVMCVdez = SVMCVdez.cross_val_score_model(model_name='svm',model=None,score=make_scorer(matthews_corrcoef),cv=10,random_state=1,n_jobs=5)
-# print(scoreSVMCVdez)
-#
-# print('SVMCV5')
-# SVMCVcc = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='svm5Redud', columns_names=colnames)
-# scoreSVMCVcc = SVMCVcc.cross_val_score_model(model_name='svm',model=None,score=make_scorer(matthews_corrcoef),cv=5,random_state=1,n_jobs=5)
-# print(scoreSVMCVcc)
+print('RFCV10')
+RFCVdez=shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='rfcv10Redud', columns_names=colnames)
+scoreRFCVdez = RFCVdez.cross_val_score_model(model_name='rf',model=None,score=make_scorer(matthews_corrcoef),cv=10,random_state=1,n_jobs=5)
+print(scoreRFCVdez)
 
-# ####### Otimização de Hiperparametros #################
-#
-# print('KNN')
-# KNN = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='knnRedud', columns_names=colnames)
-# best_knn_model = KNN.train_best_model(model_name='knn',model=None, scaler=None,score=make_scorer(matthews_corrcoef),
-#                          cv=5, optType='gridSearch', param_grid={'clf__n_neighbors': [7]},
-#                          n_jobs=4,random_state=1, n_iter=15, refit=True)
-#
-# scores, scores_per_class, cm, cm2 = KNN.score_testset()
-# print(scores)
-# print(scores_per_class)
-# print(cm)
-#
-# ROCknn = KNN.plot_roc_curve(classifier=best_knn_model, ylim=(0.0, 1.00), xlim=(0.0, 1.0),
-#                        title='ROC KNN Redud',
-#                        path_save='ROC_PLOT/knnRedud', show=False)
+print('ONEvsALL')
+clf = OneVsRestClassifier(SVC(C= 32.0, kernel= 'rbf'), n_jobs=5).fit(X_train, y_train)
+score = clf.score(X_test, y_test)
+print(score)
 
-#################
-# print('RFN')
-# RF = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='rfRedud', columns_names=colnames)
-# best_rf_model = RF.train_best_model(model_name='rf',model=None, scaler=None,score=make_scorer(matthews_corrcoef),
-#                          cv=5, optType='gridSearch', param_grid={},
-#                          n_jobs=5,random_state=1, n_iter=15, refit=True)
-#
-# scores, scores_per_class, cm, cm2 = RF.score_testset()
-# print(scores)
-# print(scores_per_class)
-# print(cm)
-#
-# FTIrf = RF.features_importances_plot(classifier=best_rf_model , model_name='rf', top_features=30,
-#                              column_to_plot=None,
-#                              show=True, path_save='Feature/rfRedud',
-#                              title=None,
-#                              kind='barh', figsize=(9, 7), color='r', edgecolor='black')
-# ROCrf = RF.plot_roc_curve(classifier=best_rf_model , ylim=(0.0, 1.00), xlim=(0.0, 1.0),
-#                        title='ROC RF Redud',
-#                        path_save='ROC_PLOT/rfRedud', show=False)
+print('SVMCV10')
+SVMCVdez = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='svm10Redud', columns_names=colnames)
+scoreSVMCVdez = SVMCVdez.cross_val_score_model(model_name='svm',model=None,score=make_scorer(matthews_corrcoef),cv=10,random_state=1,n_jobs=5)
+print(scoreSVMCVdez)
 
-##############
-# print('SVM')
-# SVM = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='svmRedud', columns_names=colnames)
-# best_svm_model = SVM.train_best_model(model_name='svm',model=None, scaler=None,score=make_scorer(matthews_corrcoef),
-#                          cv=5, optType='gridSearch', param_grid={'clf__C': [32.0], 'clf__kernel': ['rbf']},
-#                          n_jobs=5,random_state=1, n_iter=15, refit=True, probability=True)
-# print(best_svm_model)
-# scores, scores_per_class, cm, cm2 = SVM.score_testset()
-# print(scores)
-# print(scores_per_class)
-# print(cm)
-#
-# ROCsvm = SVM.plot_roc_curve(classifier=best_svm_model , ylim=(0.0, 1.00), xlim=(0.0, 1.0),
-#                        title='ROC SVM Redud',
-#                        path_save='ROC_PLOT/svmRedud', show=False)
-#
-# ValCur = SVM.plot_validation_curve('clf__C', [22, 27, 37,42],
-#                               classifier=best_svm_model,
-#                               cv=5,
-#                               score=make_scorer(matthews_corrcoef), title="Validation Curve",
-#                               xlab="parameter range", ylab="MCC", n_jobs=1, show=False,
-#                               path_save='Validation/valcurRedud')
-#
-# ###### DL Models ######
-#
-# # confirmar que nao ha colunas so de zeros ou iguais
-#
+print('SVMCV5')
+SVMCVcc = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='svm5Redud', columns_names=colnames)
+scoreSVMCVcc = SVMCVcc.cross_val_score_model(model_name='svm',model=None,score=make_scorer(matthews_corrcoef),cv=5,random_state=1,n_jobs=5)
+print(scoreSVMCVcc)
+
+####### Otimização de Hiperparametros #################
+
+print('KNN')
+KNN = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='knnRedud', columns_names=colnames)
+best_knn_model = KNN.train_best_model(model_name='knn',model=None, scaler=None,score=make_scorer(matthews_corrcoef),
+                         cv=5, optType='gridSearch', param_grid={'clf__n_neighbors': [7]},
+                         n_jobs=4,random_state=1, n_iter=15, refit=True)
+
+scores, scores_per_class, cm, cm2 = KNN.score_testset()
+print(scores)
+print(scores_per_class)
+print(cm)
+
+ROCknn = KNN.plot_roc_curve(classifier=best_knn_model, ylim=(0.0, 1.00), xlim=(0.0, 1.0),
+                       title='ROC KNN Redud',
+                       path_save='ROC_PLOT/knnRedud', show=False)
+
+################
+print('RFN')
+RF = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='rfRedud', columns_names=colnames)
+best_rf_model = RF.train_best_model(model_name='rf',model=None, scaler=None,score=make_scorer(matthews_corrcoef),
+                         cv=5, optType='gridSearch', param_grid={},
+                         n_jobs=5,random_state=1, n_iter=15, refit=True)
+
+scores, scores_per_class, cm, cm2 = RF.score_testset()
+print(scores)
+print(scores_per_class)
+print(cm)
+
+FTIrf = RF.features_importances_plot(classifier=best_rf_model , model_name='rf', top_features=30,
+                             column_to_plot=None,
+                             show=True, path_save='Feature/rfRedud',
+                             title=None,
+                             kind='barh', figsize=(9, 7), color='r', edgecolor='black')
+ROCrf = RF.plot_roc_curve(classifier=best_rf_model , ylim=(0.0, 1.00), xlim=(0.0, 1.0),
+                       title='ROC RF Redud',
+                       path_save='ROC_PLOT/rfRedud', show=False)
+
+#############
+print('SVM')
+SVM = shallow_ml.ShallowML(X_train, X_test, y_train, y_test, report_name='svmRedud', columns_names=colnames)
+best_svm_model = SVM.train_best_model(model_name='svm',model=None, scaler=None,score=make_scorer(matthews_corrcoef),
+                         cv=5, optType='gridSearch', param_grid={'clf__C': [32.0], 'clf__kernel': ['rbf']},
+                         n_jobs=5,random_state=1, n_iter=15, refit=True, probability=True)
+print(best_svm_model)
+scores, scores_per_class, cm, cm2 = SVM.score_testset()
+print(scores)
+print(scores_per_class)
+print(cm)
+
+ROCsvm = SVM.plot_roc_curve(classifier=best_svm_model , ylim=(0.0, 1.00), xlim=(0.0, 1.0),
+                       title='ROC SVM Redud',
+                       path_save='ROC_PLOT/svmRedud', show=False)
+
+ValCur = SVM.plot_validation_curve('clf__C', [22, 27, 37,42],
+                              classifier=best_svm_model,
+                              cv=5,
+                              score=make_scorer(matthews_corrcoef), title="Validation Curve",
+                              xlab="parameter range", ylab="MCC", n_jobs=1, show=False,
+                              path_save='Validation/valcurRedud')
+
+###### DL Models ######
+
+# confirmar que nao ha colunas so de zeros ou iguais
+
 from sklearn.feature_selection import VarianceThreshold
 sel = VarianceThreshold(0)
 transf = sel.fit_transform(vector)

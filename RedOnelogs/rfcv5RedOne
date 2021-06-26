@@ -1,0 +1,17 @@
+rfcv5RedOnerfcv5RedOne
+===TRAIN MODELS===
+
+cross_val_score_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x0000013CA22497F0>, 'model_name': 'rf', 'model': None, 'score': make_scorer(matthews_corrcoef), 'cv': None, 'n_jobs': 5, 'random_state': 1, 'params': {}, 'start': 15.0478375}
+
+      fit_time  score_time  test_score
+0     4.762659    0.044002    0.315377
+1     4.832257    0.041001    0.298177
+2     4.799360    0.096000    0.265454
+3     4.903349    0.037089    0.310143
+4     4.745588    0.034997    0.272290
+mean  4.808643    0.050618    0.292288
+std   0.056042    0.022903    0.020033
+
+test_scoreFinished cross_val_score_model in 24.3143 secs
+

@@ -1,0 +1,65 @@
+svmFull
+===TRAIN MODELS===
+
+train_best_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x00000278441CA370>, 'model_name': 'svm', 'model': None, 'scaler': None, 'score': make_scorer(matthews_corrcoef), 'cv': 5, 'optType': 'gridSearch', 'param_grid': {'clf__C': [32.0], 'clf__kernel': ['rbf']}, 'n_jobs': 5, 'random_state': 1, 'n_iter': 15, 'refit': True, 'params': {'probability': True}, 'start': 58.0826137}
+['Model with rank: 1\n', 'Mean validation score: 0.711 (std: 0.005)\n', "Parameters: {'clf__C': 32.0, 'clf__kernel': 'rbf'}\n", '\n']
+Best score (scorer: make_scorer(matthews_corrcoef)) and parameters from a 5-fold cross validation:
+
+MCC score:	0.711
+
+Parameters:	{'clf__C': 32.0, 'clf__kernel': 'rbf'}
+
+Finished train_best_model in 22028.7091 secs
+
+	means	stds	clf__C	clf__kernel
+0	0.711	0.005	32.000	rbf
+
+===SCORING TEST SET ===
+
+score_testset
+{'self': <propythia.shallow_ml.ShallowML object at 0x00000278441CA370>, 'classifier': Pipeline(steps=[('scl', None),
+                ('clf', SVC(C=32.0, probability=True, random_state=1))])}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.82      0.83      0.82      2231
+           1       0.76      0.84      0.80      3734
+           2       0.84      0.83      0.83      4025
+           3       0.88      0.71      0.79       783
+           4       0.87      0.60      0.71       434
+           5       0.74      0.52      0.61       332
+           6       0.78      0.49      0.60        96
+
+    accuracy                           0.81     11635
+   macro avg       0.81      0.69      0.74     11635
+weighted avg       0.81      0.81      0.80     11635
+
+
+confusion_matrix
+
+[[1845  209  143   16   11    5    2]
+ [ 167 3153  349   23   13   24    5]
+ [ 132  491 3341   25   12   20    4]
+ [  28  117   71  555    3    7    2]
+ [  39   73   51    7  260    4    0]
+ [  25   98   34    3    0  172    0]
+ [   9   27    9    2    1    1   47]]
+
+multilabel confusion matrix
+
+None
+
+scores report
+metrics	scores
+Accuracy	0.8056
+MCC	0.7324
+log_loss	0.5976
+f1 score weighted	0.8039
+f1 score macro	0.7372
+f1 score micro	0.8056
+roc_auc ovr	0.9469
+roc_auc ovo	0.9414
+precision	0.8085
+recall	0.8056

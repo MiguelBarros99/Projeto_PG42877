@@ -1,0 +1,64 @@
+rfRedOne
+===TRAIN MODELS===
+
+train_best_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x000002832CDEBBE0>, 'model_name': 'rf', 'model': None, 'scaler': None, 'score': make_scorer(matthews_corrcoef), 'cv': 5, 'optType': 'gridSearch', 'param_grid': {}, 'n_jobs': 5, 'random_state': 1, 'n_iter': 15, 'refit': True, 'params': {}, 'start': 703.4670824}
+['Model with rank: 1\n', 'Mean validation score: 0.292 (std: 0.020)\n', 'Parameters: {}\n', '\n']
+Best score (scorer: make_scorer(matthews_corrcoef)) and parameters from a 5-fold cross validation:
+
+MCC score:	0.292
+
+Parameters:	{}
+
+Finished train_best_model in 19.7015 secs
+
+	means	stds
+0	0.292	0.020
+
+===SCORING TEST SET ===
+
+score_testset
+{'self': <propythia.shallow_ml.ShallowML object at 0x000002832CDEBBE0>, 'classifier': Pipeline(steps=[('scl', None), ('clf', RandomForestClassifier(random_state=1))])}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.68      0.42      0.52       431
+           1       0.44      0.72      0.55       727
+           2       0.50      0.60      0.54       709
+           3       0.78      0.11      0.20       187
+           4       1.00      0.10      0.18       135
+           5       0.00      0.00      0.00       106
+           6       0.00      0.00      0.00        25
+
+    accuracy                           0.50      2320
+   macro avg       0.49      0.28      0.28      2320
+weighted avg       0.54      0.50      0.46      2320
+
+
+confusion_matrix
+
+[[180 142 109   0   0   0   0]
+ [ 26 520 178   3   0   0   0]
+ [ 26 260 422   1   0   0   0]
+ [ 16  99  51  21   0   0   0]
+ [ 12  59  50   1  13   0   0]
+ [  3  72  30   1   0   0   0]
+ [  1  18   6   0   0   0   0]]
+
+multilabel confusion matrix
+
+None
+
+scores report
+metrics	scores
+Accuracy	0.4983
+MCC	0.3054
+log_loss	1.3672
+f1 score weighted	0.4599
+f1 score macro	0.2830
+f1 score micro	0.4983
+roc_auc ovr	0.7641
+roc_auc ovo	0.7665
+precision	0.5393
+recall	0.4983

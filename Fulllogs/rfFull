@@ -1,0 +1,128 @@
+rfFull
+===TRAIN MODELS===
+
+train_best_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x000001B161433370>, 'model_name': 'rf', 'model': None, 'scaler': None, 'score': make_scorer(matthews_corrcoef), 'cv': 10, 'optType': 'gridSearch', 'param_grid': {}, 'n_jobs': 5, 'random_state': 1, 'n_iter': 15, 'refit': True, 'params': {}, 'start': 54.9988461}
+['Model with rank: 1\n', 'Mean validation score: 0.689 (std: 0.008)\n', 'Parameters: {}\n', '\n']
+Best score (scorer: make_scorer(matthews_corrcoef)) and parameters from a 10-fold cross validation:
+
+MCC score:	0.689
+
+Parameters:	{}
+
+Finished train_best_model in 168.5447 secs
+
+	means	stds
+0	0.689	0.008
+
+===SCORING TEST SET ===
+
+score_testset
+{'self': <propythia.shallow_ml.ShallowML object at 0x000001B161433370>, 'classifier': Pipeline(steps=[('scl', None), ('clf', RandomForestClassifier(random_state=1))])}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.75      0.83      2231
+           1       0.68      0.89      0.77      3734
+           2       0.80      0.84      0.82      4025
+           3       1.00      0.55      0.71       783
+           4       1.00      0.39      0.56       434
+           5       1.00      0.18      0.31       332
+           6       1.00      0.23      0.37        96
+
+    accuracy                           0.78     11635
+   macro avg       0.91      0.55      0.62     11635
+weighted avg       0.81      0.78      0.77     11635
+
+
+confusion_matrix
+
+[[1672  347  212    0    0    0    0]
+ [  39 3331  364    0    0    0    0]
+ [  20  624 3379    2    0    0    0]
+ [  22  219  111  431    0    0    0]
+ [  22  145   97    0  170    0    0]
+ [  18  201   52    0    0   61    0]
+ [   6   47   21    0    0    0   22]]
+
+multilabel confusion matrix
+
+None
+
+scores report
+metrics	scores
+Accuracy	0.7792
+MCC	0.6949
+log_loss	0.7896
+f1 score weighted	0.7700
+f1 score macro	0.6248
+f1 score micro	0.7792
+roc_auc ovr	0.9488
+roc_auc ovo	0.9416
+precision	0.8128
+recall	0.7792
+rfFull
+===TRAIN MODELS===
+
+train_best_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x00000221B3204370>, 'model_name': 'rf', 'model': None, 'scaler': None, 'score': make_scorer(matthews_corrcoef), 'cv': 5, 'optType': 'gridSearch', 'param_grid': {}, 'n_jobs': 5, 'random_state': 1, 'n_iter': 15, 'refit': True, 'params': {}, 'start': 42.4693106}
+['Model with rank: 1\n', 'Mean validation score: 0.682 (std: 0.005)\n', 'Parameters: {}\n', '\n']
+Best score (scorer: make_scorer(matthews_corrcoef)) and parameters from a 5-fold cross validation:
+
+MCC score:	0.682
+
+Parameters:	{}
+
+Finished train_best_model in 119.1014 secs
+
+	means	stds
+0	0.682	0.005
+
+===SCORING TEST SET ===
+
+score_testset
+{'self': <propythia.shallow_ml.ShallowML object at 0x00000221B3204370>, 'classifier': Pipeline(steps=[('scl', None), ('clf', RandomForestClassifier(random_state=1))])}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.75      0.83      2231
+           1       0.68      0.89      0.77      3734
+           2       0.80      0.84      0.82      4025
+           3       1.00      0.55      0.71       783
+           4       1.00      0.39      0.56       434
+           5       1.00      0.18      0.31       332
+           6       1.00      0.23      0.37        96
+
+    accuracy                           0.78     11635
+   macro avg       0.91      0.55      0.62     11635
+weighted avg       0.81      0.78      0.77     11635
+
+
+confusion_matrix
+
+[[1672  347  212    0    0    0    0]
+ [  39 3331  364    0    0    0    0]
+ [  20  624 3379    2    0    0    0]
+ [  22  219  111  431    0    0    0]
+ [  22  145   97    0  170    0    0]
+ [  18  201   52    0    0   61    0]
+ [   6   47   21    0    0    0   22]]
+
+multilabel confusion matrix
+
+None
+
+scores report
+metrics	scores
+Accuracy	0.7792
+MCC	0.6949
+log_loss	0.7896
+f1 score weighted	0.7700
+f1 score macro	0.6248
+f1 score micro	0.7792
+roc_auc ovr	0.9488
+roc_auc ovo	0.9416
+precision	0.8128
+recall	0.7792

@@ -1,0 +1,17 @@
+svm5Redud
+===TRAIN MODELS===
+
+cross_val_score_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x0000025CD871ADF0>, 'model_name': 'svm', 'model': None, 'score': make_scorer(matthews_corrcoef), 'cv': 5, 'n_jobs': 5, 'random_state': 1, 'params': {}, 'start': 3536.084603}
+
+        fit_time  score_time  test_score
+0     231.313544   40.131962    0.439004
+1     286.778059   41.276749    0.433331
+2     262.652316   36.965874    0.443558
+3     195.126879   27.645582    0.434911
+4     178.372987   26.899084    0.432471
+mean  230.848757   34.583850    0.436655
+std    40.421599    6.139148    0.004117
+
+test_scoreFinished cross_val_score_model in 1327.2265 secs
+

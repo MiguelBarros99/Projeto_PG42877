@@ -1,0 +1,65 @@
+
+===TRAIN MODELS===
+
+train_best_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x000002124AAD39D0>, 'model_name': 'svm', 'model': None, 'scaler': None, 'score': make_scorer(matthews_corrcoef), 'cv': 5, 'optType': 'gridSearch', 'param_grid': {'clf__C': [32.0], 'clf__kernel': ['rbf']}, 'n_jobs': 5, 'random_state': 1, 'n_iter': 15, 'refit': True, 'params': {'probability': True}, 'start': 209.8875115}
+['Model with rank: 1\n', 'Mean validation score: 0.584 (std: 0.010)\n', "Parameters: {'clf__C': 32.0, 'clf__kernel': 'rbf'}\n", '\n']
+Best score (scorer: make_scorer(matthews_corrcoef)) and parameters from a 5-fold cross validation:
+
+MCC score:	0.584
+
+Parameters:	{'clf__C': 32.0, 'clf__kernel': 'rbf'}
+
+Finished train_best_model in 6904.9176 secs
+
+	means	stds	clf__C	clf__kernel
+0	0.584	0.010	32.000	rbf
+
+===SCORING TEST SET ===
+
+score_testset
+{'self': <propythia.shallow_ml.ShallowML object at 0x000002124AAD39D0>, 'classifier': Pipeline(steps=[('scl', None),
+                ('clf', SVC(C=32.0, probability=True, random_state=1))])}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.75      0.75      0.75      1364
+           1       0.66      0.77      0.71      2234
+           2       0.73      0.74      0.73      2212
+           3       0.83      0.61      0.70       512
+           4       0.83      0.56      0.67       339
+           5       0.70      0.40      0.51       277
+           6       0.78      0.47      0.58        81
+
+    accuracy                           0.72      7019
+   macro avg       0.75      0.61      0.67      7019
+weighted avg       0.72      0.72      0.71      7019
+
+
+confusion_matrix
+
+[[1026  173  132   13    8    7    5]
+ [ 146 1716  307   28   10   22    5]
+ [ 115  425 1627   14   15   15    1]
+ [  44   77   71  313    4    3    0]
+ [  24   73   48    5  189    0    0]
+ [  16   98   45    5    1  112    0]
+ [   5   25   12    1    0    0   38]]
+
+multilabel confusion matrix
+
+None
+
+scores report
+metrics	scores
+Accuracy	0.7153
+MCC	0.6156
+log_loss	0.8449
+f1 score weighted	0.7129
+f1 score macro	0.6657
+f1 score micro	0.7153
+roc_auc ovr	0.8995
+roc_auc ovo	0.9005
+precision	0.7219
+recall	0.7153

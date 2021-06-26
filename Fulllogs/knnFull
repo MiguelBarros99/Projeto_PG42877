@@ -1,0 +1,64 @@
+knnFull
+===TRAIN MODELS===
+
+train_best_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x000001E8EA322370>, 'model_name': 'knn', 'model': None, 'scaler': None, 'score': make_scorer(matthews_corrcoef), 'cv': 5, 'optType': 'gridSearch', 'param_grid': {'clf__n_neighbors': [7]}, 'n_jobs': 4, 'random_state': 1, 'n_iter': 15, 'refit': True, 'params': {}, 'start': 46.6231149}
+['Model with rank: 1\n', 'Mean validation score: 0.653 (std: 0.005)\n', "Parameters: {'clf__n_neighbors': 7}\n", '\n']
+Best score (scorer: make_scorer(matthews_corrcoef)) and parameters from a 5-fold cross validation:
+
+MCC score:	0.653
+
+Parameters:	{'clf__n_neighbors': 7}
+
+Finished train_best_model in 437.6772 secs
+
+	means	stds	clf__n_neighbors
+0	0.653	0.005	7
+
+===SCORING TEST SET ===
+
+score_testset
+{'self': <propythia.shallow_ml.ShallowML object at 0x000001E8EA322370>, 'classifier': Pipeline(steps=[('scl', None), ('clf', KNeighborsClassifier(n_neighbors=7))])}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.66      0.86      0.75      2231
+           1       0.78      0.76      0.77      3734
+           2       0.83      0.79      0.81      4025
+           3       0.87      0.68      0.77       783
+           4       0.89      0.56      0.68       434
+           5       0.59      0.47      0.53       332
+           6       0.39      0.43      0.41        96
+
+    accuracy                           0.77     11635
+   macro avg       0.72      0.65      0.67     11635
+weighted avg       0.78      0.77      0.77     11635
+
+
+confusion_matrix
+
+[[1923  143  106   21    4   14   20]
+ [ 426 2838  349   36   10   46   29]
+ [ 341  439 3177   17    7   35    9]
+ [  87   69   75  536    8    5    3]
+ [  63   65   48    6  241    7    4]
+ [  63   70   41    0    1  157    0]
+ [  13   24   15    1    0    2   41]]
+
+multilabel confusion matrix
+
+None
+
+scores report
+metrics	scores
+Accuracy	0.7661
+MCC	0.6828
+log_loss	2.1461
+f1 score weighted	0.7659
+f1 score macro	0.6725
+f1 score micro	0.7661
+roc_auc ovr	0.9297
+roc_auc ovo	0.9182
+precision	0.7762
+recall	0.7661

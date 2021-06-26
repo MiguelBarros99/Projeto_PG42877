@@ -1,0 +1,151 @@
+DNNRedOne
+self
+x_train
+y_train
+x_test
+y_test
+number_classes
+problem_type
+x_dval
+y_dval
+model
+epochs
+batch_size
+callbacks
+reduce_lr
+early_stopping
+checkpoint
+tensorboard
+early_stopping_patience
+reduce_lr_patience
+reduce_lr_factor
+reduce_lr_min
+path
+report_name
+verbose
+validation_split
+shuffle
+class_weights
+===Train basic models: 
+
+run_dnn_simple
+{'self': <propythia.deep_ml.DeepML object at 0x0000020DEF945AC0>, 'input_dim': 361, 'optimizer': 'Adam', 'hidden_layers': (256, 256, 128, 128), 'dropout_rate': (0.1, 0.1, 0.1, 0.1), 'batchnormalization': (True,), 'l1': 1e-05, 'l2': 0.0001, 'final_dropout_value': 0.3, 'initial_dropout_value': 0.0, 'loss_fun': 'sparse_categorical_crossentropy', 'activation_fun': 'softmax', 'cv': None, 'optType': None, 'param_grid': None, 'n_iter_search': 15, 'n_jobs': 1, 'scoring': make_scorer(matthews_corrcoef), 'func_name': 'run_dnn_simple'}
+===Callbacks===
+
+generate_callbacks
+[<tensorflow.python.keras.callbacks.EarlyStopping object at 0x0000020DEF990850>, <tensorflow.python.keras.callbacks.ReduceLROnPlateau object at 0x0000020DEF990E50>, <tensorflow.python.keras.callbacks.ModelCheckpoint object at 0x0000020DEF9905E0>]
+===TRAIN MODELS===
+
+run_model
+('Training Accuracy mean: ', 0.8778442714999362)
+('Validation Accuracy mean: ', 0.46891010098341035)
+('Training Loss mean: ', 0.5591998912575769)
+('Validation Loss mean: ', 2.402811655184118)
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 256)               92672     
+_________________________________________________________________
+batch_normalization (BatchNo (None, 256)               1024      
+_________________________________________________________________
+dropout (Dropout)            (None, 256)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 256)               65792     
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 256)               1024      
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 256)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               32896     
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 128)               512       
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 128)               512       
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 7)                 903       
+=================================================================
+Total params: 211,847
+Trainable params: 210,311
+Non-trainable params: 1,536
+_________________________________________________________________Finished run_model in 32.0261 secs
+
+
+===simple evaluate===
+
+model_simple_evaluate
+
+
+('test loss, test acc:', [3.0422332286834717, 0.4865301847457886])
+===SCORING TEST SET ===
+
+model_complete_evaluate
+{'self': <propythia.deep_ml.DeepML object at 0x0000020DEF945AC0>, 'x_test': None, 'y_test': None, 'model': None}
+report
+
+              precision    recall  f1-score   support
+
+           0       0.49      0.49      0.49       345
+           1       0.49      0.57      0.53       582
+           2       0.53      0.56      0.54       567
+           3       0.33      0.26      0.29       149
+           4       0.49      0.29      0.36       108
+           5       0.33      0.19      0.24        85
+           6       0.08      0.05      0.06        20
+
+    accuracy                           0.49      1856
+   macro avg       0.39      0.34      0.36      1856
+weighted avg       0.48      0.49      0.48      1856
+
+
+===confusion_matrix===
+
+[[170  83  64  10  10   7   1]
+ [ 65 331 131  28  11  12   4]
+ [ 58 150 316  27   7   5   4]
+ [ 21  47  35  38   3   2   3]
+ [ 18  28  22   4  31   5   0]
+ [ 12  27  21   8   1  16   0]
+ [  5   9   4   0   0   1   1]]
+
+===multilabel confusion matrix===
+
+[[[1332  179]
+  [ 175  170]]
+
+ [[ 930  344]
+  [ 251  331]]
+
+ [[1012  277]
+  [ 251  316]]
+
+ [[1630   77]
+  [ 111   38]]
+
+ [[1716   32]
+  [  77   31]]
+
+ [[1739   32]
+  [  69   16]]
+
+ [[1824   12]
+  [  19    1]]]
+
+===scores report===
+metrics	scores
+Accuracy	0.4865
+MCC	0.3119
+log_loss	2.8455
+f1 score weighted	0.4785
+f1 score macro	0.3590
+f1 score micro	0.4865
+roc_auc ovr	0.7339
+roc_auc ovo	0.7309
+precision	0.4784
+recall	0.4865

@@ -1,0 +1,32 @@
+svm10Full
+===TRAIN MODELS===
+
+cross_val_score_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x0000022439AFACD0>, 'model_name': 'svm', 'model': None, 'score': make_scorer(matthews_corrcoef), 'cv': 10, 'n_jobs': 5, 'random_state': 1, 'params': {}, 'start': 635.0841047}
+fit_time
+score_time
+test_scoreFinished cross_val_score_model in 7243.7067 secs
+
+svm10Fullsvm10Full
+===TRAIN MODELS===
+
+cross_val_score_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x0000012FBDEBA370>, 'model_name': 'svm', 'model': None, 'score': make_scorer(matthews_corrcoef), 'cv': 10, 'n_jobs': -1, 'random_state': 1, 'params': {}, 'start': 50.0181482}
+
+performing cross val score with 10 folds
+        fit_time  score_time  test_score
+0     652.131868   47.984429    0.609267
+1     687.682785   41.794771    0.611428
+2     699.363122   42.274419    0.616356
+3     787.927844   41.859733    0.625217
+4     574.999929   37.250013    0.640619
+5     578.894562   35.586309    0.602002
+6     557.040956   34.647228    0.619721
+7     550.019989   34.048694    0.601776
+8     544.328425   35.064793    0.624177
+9     552.009953   34.530774    0.609224
+mean  618.439943   38.504116    0.615979
+std    79.380026    4.456559    0.011324
+
+test_scoreFinished cross_val_score_model in 6569.6020 secs
+

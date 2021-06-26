@@ -1,0 +1,22 @@
+svm10RedOne
+===TRAIN MODELS===
+
+cross_val_score_model
+{'self': <propythia.shallow_ml.ShallowML object at 0x0000013CA2021820>, 'model_name': 'svm', 'model': None, 'score': make_scorer(matthews_corrcoef), 'cv': 10, 'n_jobs': 5, 'random_state': 1, 'params': {}, 'start': 94.2870358}
+
+       fit_time  score_time  test_score
+0     31.085789    1.859209    0.271634
+1     36.341217    4.787713    0.295779
+2     42.303890    2.322726    0.287419
+3     35.705051    2.223824    0.331873
+4     34.563694    2.611032    0.251559
+5     37.017208    1.908063    0.284496
+6     30.065893    1.903130    0.264562
+7     32.705775    2.087067    0.298298
+8     37.699640    2.110221    0.278887
+9     34.860607    2.465001    0.277626
+mean  35.234876    2.427799    0.284213
+std    3.340479    0.821124    0.020728
+
+test_scoreFinished cross_val_score_model in 376.6614 secs
+
